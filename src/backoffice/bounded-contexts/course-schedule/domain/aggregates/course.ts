@@ -38,9 +38,10 @@ export class Course extends AggregateRoot {
       id: this.id,
       name: this.name,
       active: this.active,
-      summary: this.summary,
       createdAt: this.createdAt,
+      updatedAt : this.updatedAt,
       deleteAt: this.deleteAt,
+      summary: this.summary,
     };
   }
 
