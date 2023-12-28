@@ -1,3 +1,3 @@
-interface Root {}
+import { AggregateRoot } from "@nestjs/cqrs";
 
-export class Course implements Root {}
+export class Course extends AggregateRoot {}
