@@ -101,6 +101,7 @@ export class Schedule extends AggregateRoot {
       scheduleId: this.scheduleId,
       text: syllabus,
     });
+    this.syllabus.push(newSyllabus);
   }
 
   update(fields: Partial<ScheduleUpdate>) {
