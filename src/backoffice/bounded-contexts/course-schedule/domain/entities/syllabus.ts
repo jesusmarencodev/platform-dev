@@ -1,18 +1,19 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
+import { ScheduleVO } from '../value-objects/schedule-id.vo';
 
 export type SyllabusProperties = {
-  readonly scheduleId: string;
+  readonly scheduleId: ScheduleVO;
   readonly text: string;
 };
 
 export class Syllabus {
   private readonly syllabusId: string;
-  private readonly scheduleId: string;
+  private readonly scheduleId: ScheduleVO;
   private readonly text: string;
 
   constructor(properties: SyllabusProperties) {
     Object.assign(this, properties);
-    this.syllabusId = uuid();
+    this.syllabusId = uuidv4();
   }
 
   properties() {

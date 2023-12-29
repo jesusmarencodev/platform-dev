@@ -2,9 +2,10 @@ import { AggregateRoot } from '@nestjs/cqrs';
 import { Requirement } from '../entities/requirement';
 import { Goal } from '../entities/goal';
 import { Syllabus } from '../entities/syllabus';
+import { ScheduleVO } from '../value-objects/schedule-id.vo';
 
 export type ScheduleEssential = {
-  readonly scheduleId: string;
+  readonly scheduleId: ScheduleVO;
   readonly courseId: string;
   readonly subject: string;
   readonly status: string;
@@ -34,7 +35,7 @@ export type ScheduleProperties = Required<ScheduleEssential> &
   Partial<ScheduleOptional>;
 
 export class Schedule extends AggregateRoot {
-  private readonly scheduleId: string;
+  private readonly scheduleId: ScheduleVO;
   private readonly courseId: string;
   private subject: string;
   private status: string;
@@ -113,9 +114,4 @@ export class Schedule extends AggregateRoot {
   }
 }
 
-const properties: ScheduleProperties = {
-  scheduleId: 'abc',
-  subject: 'abc',
-  courseId: 'abc',
-  status: 'q',
-};
+
