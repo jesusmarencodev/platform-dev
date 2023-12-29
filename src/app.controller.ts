@@ -9,7 +9,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    const courseId = 'd4900e82-3e24-4a68-abc9-8edf158dd659';
+/*     const courseId = 'd4900e82-3e24-4a68-abc9-8edf158dd659';
     const scheduleId = ScheduleVO.create(
       '8fda35b0-b20d-4692-92d8-396dfd8f760c',
     );
@@ -32,7 +32,7 @@ export class AppController {
     schedule.addSyllabus('Syllabus 2');
     schedule.addSyllabus('Syllabus 3');
 
-    console.log(schedule);
+    console.log(schedule); */
 
     return 'ok';
   }
