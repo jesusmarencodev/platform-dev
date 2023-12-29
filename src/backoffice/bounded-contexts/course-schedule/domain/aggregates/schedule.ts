@@ -1,5 +1,7 @@
 import { AggregateRoot } from '@nestjs/cqrs';
 import { Requirement } from '../entities/requirement';
+import { Goal } from '../entities/goal';
+import { Syllabus } from '../entities/syllabus';
 
 export type ScheduleEssential = {
   readonly scheduleId: string;
@@ -46,7 +48,9 @@ export class Schedule extends AggregateRoot {
   private readonly createdAt: Date;
   private updatedAt: Date;
   private deleteAt: Date;
-  readonly requirements: Requirement[] = [];
+  private requirements: Requirement[] = [];
+  private goals: Goal[] = [];
+  private syllabus: Syllabus[] = [];
 
   constructor(properties: ScheduleProperties) {
     super();
@@ -71,6 +75,9 @@ export class Schedule extends AggregateRoot {
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
       deleteAt: this.deleteAt,
+      requirements: this.requirements,
+      goals: this.goals,
+      syllabus: this.syllabus,
     };
   }
 
@@ -80,6 +87,19 @@ export class Schedule extends AggregateRoot {
       text: requirement,
     });
     this.requirements.push(newRequirement);
+  }
+  addGoal(goal: string) {
+    const newGoal = new Goal({
+      scheduleId: this.scheduleId,
+      text: goal,
+    });
+    this.goals.push(newGoal);
+  }
+  addSyllabus(syllabus: string) {
+    const newSyllabus = new Syllabus({
+      scheduleId: this.scheduleId,
+      text: syllabus,
+    });
   }
 
   update(fields: Partial<ScheduleUpdate>) {

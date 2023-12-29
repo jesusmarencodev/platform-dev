@@ -18,7 +18,7 @@ export class Requirement {
   properties() {
     return {
       requirementId: this.requirementId,
-      sheduleId: this.scheduleId,
+      scheduleId: this.scheduleId,
       text: this.text,
     };
   }
